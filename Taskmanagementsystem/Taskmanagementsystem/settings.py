@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     # APPS
     'apps.accounts.apps.AccountsConfig',
     'apps.tasks.apps.TasksConfig',
+    'apps.chatbot.apps.ChatbotConfig',
 
 
 ]
@@ -167,7 +168,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS":
         "rest_framework.pagination.PageNumberPagination",
 
-    "PAGE_SIZE": 5,
+    "PAGE_SIZE": 6,
 }
 
 
@@ -176,3 +177,6 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
+
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")

@@ -22,4 +22,5 @@ urlpatterns = [
 
     path('api/', include('apps.accounts.urls')),
     path('api/', include('apps.tasks.urls')),
+    path("api/chat/", include("apps.chatbot.urls")),
 ]
