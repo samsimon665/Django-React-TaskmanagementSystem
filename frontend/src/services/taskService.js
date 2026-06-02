@@ -2,6 +2,8 @@ import api from "./api";
 
 const API_URL = "/api/tasks/";
 
+
+
 export const createTask = async (taskData) => {
 
     const response = await api.post(
@@ -12,12 +14,16 @@ export const createTask = async (taskData) => {
     return response.data;
 };
 
+
+
 export const getTasks = async (url = API_URL) => {
 
     const response = await api.get(url);
 
     return response.data;
 };
+
+
 
 export const deleteTask = async (taskId) => {
 
@@ -28,6 +34,8 @@ export const deleteTask = async (taskId) => {
     return response.data;
 };
 
+
+
 export const getTaskById = async (id) => {
 
     const response = await api.get(
@@ -36,6 +44,8 @@ export const getTaskById = async (id) => {
 
     return response.data;
 };
+
+
 
 export const updateTask = async (id, taskData) => {
 
@@ -46,6 +56,8 @@ export const updateTask = async (id, taskData) => {
 
     return response.data;
 };
+
+
 
 export const getFilteredTasks = async (
     search = "",
