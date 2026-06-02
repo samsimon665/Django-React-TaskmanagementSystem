@@ -47,8 +47,15 @@ INSTALLED_APPS = [
     # DRF
     'rest_framework',
 
+    # CORS 
+    "corsheaders",
+
+    # FOR FILTERING 
+    'django_filters',
+
     # APPS
     'apps.accounts.apps.AccountsConfig',
+    'apps.tasks.apps.TasksConfig',
 
 
 ]
@@ -56,6 +63,10 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+
+    # CORS 
+    "corsheaders.middleware.CorsMiddleware",
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -144,4 +155,24 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
+
+
+    # FOR FILTERING 
+    "DEFAULT_FILTER_BACKENDS": (
+        "django_filters.rest_framework.DjangoFilterBackend",
+        "rest_framework.filters.SearchFilter",
+        "rest_framework.filters.OrderingFilter",
+    ),
+
+    "DEFAULT_PAGINATION_CLASS":
+        "rest_framework.pagination.PageNumberPagination",
+
+    "PAGE_SIZE": 5,
 }
+
+
+# CORS 
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
